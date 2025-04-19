@@ -1,0 +1,20 @@
+\input{titlepage_config}
+% Title page uses its own geometry settings
+\newgeometry{left=1.5in, top=1.5in, right=1.5in, bottom=1.5in}
+\begin{titlepage}
+    \centering
+    \vspace*{\titlepagespacer}
+    {\Huge\textbf{\maintitle}\par}
+    \vspace*{\titlepagespacer}
+    {\large\subtitle\par}
+    \vspace*{2\titlepagespacer}
+    {\large\textbf{\authorname}\par}
+    \vfill
+    \begin{flushright}
+    {Last updated on\hspace*{6\titlepagespacer}\par}
+    \vspace*{\titlepagespacer}
+    {\large\documentdate\par}
+    \end{flushright}
+\end{titlepage}
+
+\restoregeometry

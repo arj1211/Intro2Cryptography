@@ -1,0 +1,20 @@
+% tocstyles.sty: Table of Contents Customization
+% =============================================================
+% This package customizes the Table of Contents layout, including
+% spacing before/after the title and entries.
+%
+% Last updated: 2025/03/03
+% =============================================================
+
+\ProvidesPackage{tocstyles}[2025/03/03 TOC Customization]
+
+\usepackage{tocloft}  % Package to customize TOC, LOF, LOT, etc.
+
+% Assumes that the spacing variable \tocspacer is defined in macros.tex.
+\setlength{\cftbeforetoctitleskip}{\tocspacer}       % Vertical space before TOC title
+\renewcommand{\contentsname}{\hfill\Large\bfseries Contents\hfill} % Center TOC title
+\renewcommand{\cftaftertoctitle}{\hfill}              % Filler after TOC title
+\setlength{\cftaftertoctitleskip}{\tocspacer}         % Vertical space after TOC title
+\setlength{\cftbeforechapskip}{2\tocspacer}           % Space before chapter entries
+\setlength{\cftbeforesecskip}{0.5\tocspacer}          % Space before section entries
+\setlength{\cftbeforesubsecskip}{0.5\tocspacer}       % Space before subsection entries

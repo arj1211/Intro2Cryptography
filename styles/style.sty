@@ -1,0 +1,28 @@
+% style.sty: Custom Style Package
+% =============================================================
+% This package defines our document style, including page geometry,
+% heading formats, TOC customization, code listings, and more.
+%
+% Last updated: 2025/03/02
+% =============================================================
+
+\ProvidesPackage{style}[2025/03/02 Custom Style Package]
+
+\input{styles/style_config}
+
+
+\usepackage{styles/docstyles}   % Document settings (page geometry, headings, patching)
+\usepackage{styles/tocstyles}   % TOC customizations
+\usepackage{styles/codestyles}  % Code listings settings
+\usepackage{styles/mathstyles}  % Math theorem/definition environments
+\usepackage{styles/patchstyles} % Patching commands (loaded last to take precedence).
+
+% \usepackage{enumitem}
+% \setlist[enumerate]{%
+%   leftmargin=*,% Instruct enumitem to use the parent's left margin.
+%   before={\begingroup
+%     % Reset the left margin to the value computed from the current indent level:
+%     \setlength{\leftmargin}{\dimexpr \my@indentlevel\headingHspace \relax}%
+%   },
+%   after={\endgroup}%
+% }
