@@ -17,12 +17,10 @@
 \usepackage{mathstyles}  % Math theorem/definition environments
 \usepackage{patchstyles} % Patching commands (loaded last to take precedence).
 
-% \usepackage{enumitem}
-% \setlist[enumerate]{%
-%   leftmargin=*,% Instruct enumitem to use the parent's left margin.
-%   before={\begingroup
-%     % Reset the left margin to the value computed from the current indent level:
-%     \setlength{\leftmargin}{\dimexpr \my@indentlevel\headingHspace \relax}%
-%   },
-%   after={\endgroup}%
-% }
+\usepackage{enumitem}
+\setlist[enumerate]{%
+  leftmargin=\dimexpr\my@indentlevel\headingHspace + 1.5\headingHspace\relax,
+  labelwidth=\dimexpr\my@indentlevel\headingHspace\relax,
+  labelsep=0.5\headingHspace\relax,
+  % itemindent=1em%\dimexpr\my@indentlevel\headingHspace\relax,
+}

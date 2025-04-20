@@ -31,20 +31,20 @@
 
 % Patch the beginning of the proof environment to set leftskip.
 \xpatchcmd{\proof}
-  {\ignorespaces}
-  {%
-    \setlength{\leftskip}{\dimexpr \my@indentlevel\headingHspace \relax}%
-    \ignorespaces
-  }
-  {}{}
+{\ignorespaces}
+{%
+  \setlength{\leftskip}{\dimexpr \my@indentlevel\headingHspace \relax}%
+  \ignorespaces
+}
+{}{}
 % Patch the end of the proof environment to reset leftskip.
 \xpatchcmd{\proof}
-  {\endtrivlist}
-  {%
-    \endtrivlist
-    \setlength{\leftskip}{0pt}%
-  }
-  {}{}
+{\endtrivlist}
+{%
+  \endtrivlist
+  \setlength{\leftskip}{0pt}%
+}
+{}{}
 
 \makeatother
 
@@ -52,6 +52,3 @@
 \usepackage{etoolbox}
 \pretocmd{\tableofcontents}{\begingroup\setlength{\leftskip}{0pt}}{}{}
 \apptocmd{\tableofcontents}{\endgroup}{}{}
-
-
-% \renewcommand{\enumerate}{}

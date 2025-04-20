@@ -1,26 +1,34 @@
 \chapter{Introduction}
-
 \section{Divisibility, GCD}
-
-
 \begin{definition}[Divisibility]
-\begin{gather*}
-    \forall a,b \in \Z, \ b \ne 0,\ \exists c\in \Z \\  \ifthen{a=bc}{b \ \textbf{divides} \ a}
-\end{gather*}
-also written \[\divides{b}{a}\]
-and if $b$ \underline{doesn't} divide $a$, \[\ndivides{b}{a}\]
+  \begin{gather*}
+    \forall a,b \in \Z, \ b \ne 0,	\\
+    \exists c \in \Z : \ifthen{a=bc}{b \ \textbf{divides} \ a}
+  \end{gather*}
+  also written \[\divides{b}{a}\]
+  and if $b$ \underline{doesn't} divide $a$, \[\ndivides{b}{a}\]
 \end{definition}
-
 \subsection{Properties of Divisibility}
-
-Property 
-
 \begin{enumerate}
-  \item Items are numbered automatically.
-  \item The numbers start at 1 with each use of the \texttt{enumerate} environment.
-  \item Another entry in the list
+  \item
+        $\ifthen{a|b \wedge b|c}{a|c}$	\\
+        $\ifthen{a|b}{b=ax_1, \ \exists x_1 \in \Z}$	\\
+        $\ifthen{b|c}{c=bx_2, \ \exists x_2 \in \Z}$	\\
+        $\Rightarrow \ifthen{c=ax_1x_2}{c=ax_3, \ \exists x_3 \in \Z}$	\\
+        $\Rightarrow a|c \qed$
+  \item
+        $\ifthen{a|b \wedge b|a}{a=\pm b}$	\\
+        $\ifthen{b=ax_1, \ a=bx_2}{x_1x_2=1}$	\\
+        $\Rightarrow \ifthen{x_1=x_2=\pm 1}{a=\pm b} \qed$
+  \item
+        $\ifthen{a|b \wedge a|c}{a|(b+c) \wedge a|(b-c)}$  \\
+        $\ifthen{b=ax_1, \ c=ax_2}{
+            \begin{aligned}
+              b+c & = a(x_1+x_2) = \ifthen{ax_3}{a|(b+c)}      \\
+              b-c & = a(x_1-x_2) = \ifthen{ax_3}{a|(b-c)} \qed
+            \end{aligned}
+          }$
 \end{enumerate}
-
 \section{Modular Arithmetic}
 \section{Primes, Factorizations, Primitive Roots}
 \section{Symmetric, Asymmetric Ciphers}
