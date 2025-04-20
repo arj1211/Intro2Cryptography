@@ -37,6 +37,6 @@ RUN groupadd --gid $USER_GID $USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
+
 USER $USERNAME
 WORKDIR /workspace
