@@ -1,0 +1,65 @@
+{
+    "name": "Intro2Cryptography LaTeX",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    // Mount your local folder into /workspace in the container
+    "workspaceFolder": "/workspace",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    // Install the VS Code LaTeX Workshop extension
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop"
+            ],
+            "settings": {
+                "editor.formatOnSave": true,
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": true,
+                "latex-workshop.latex.autoBuild.run": "onSave",
+                "latex-workshop.latex.clean.fileTypes": [
+                    "*.aux",
+                    "*.bbl",
+                    "*.blg",
+                    "*.idx",
+                    "*.toc",
+                    "*.lof",
+                    "*.lot",
+                    "*.fls",
+                    "*.fdb_latexmk",
+                    "*.log",
+                    "*.synctex.gz"
+                ],
+                // Define only one recipe that uses pdflatex twice
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "pdflatex*2",
+                        "tools": [
+                            "pdflatex",
+                            "pdflatex"
+                        ]
+                    }
+                ],
+                // Point the default build to your pdflatex‑only recipe
+                "latex-workshop.latex.recipe.default": "pdflatex*2",
+                // Other LaTeX Workshop Settings
+                "latex-workshop.formatting.latex": "latexindent",
+                "latex-workshop.formatting.latexindent.path": "latexindent",
+                "latex-workshop.synctex.afterBuild.enabled": true
+            }
+        }
+    },
+    "runArgs": [
+        "--env",
+        "TEXINPUTS=.:/workspace/styles/:"
+    ],
+    // Forward the LaTeX build log port (if you use the live build server)
+    "forwardPorts": [
+        8080
+    ],
+    // Example: if you need to install extra CTAN packages after build
+    // (usually not needed if you install texlive-latex-extra etc. above)
+    // "postCreateCommand": "tlmgr update --self && tlmgr update --all",
+    // Ensure that when VS Code launches terminals or runs tasks, it uses the 'vscode' user
+    "remoteUser": "vscode"
+}
