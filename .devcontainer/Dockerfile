@@ -2,6 +2,7 @@ FROM ubuntu:22.04
 
 # Avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=America/New_York
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -18,8 +19,12 @@ RUN apt-get update \
     perl \
     libyaml-tiny-perl \
     texlive-extra-utils \
+    tzdata \ 
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime \
+    && dpkg-reconfigure -f noninteractive tzdata
 
 RUN cpan YAML::Tiny \ 
     && cpan File::HomeDir
