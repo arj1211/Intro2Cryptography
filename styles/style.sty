@@ -1,22 +1,17 @@
-% style.sty: Custom Style Package
 % =============================================================
 % This package defines our document style, including page geometry,
 % heading formats, TOC customization, code listings, and more.
-%
-% Last updated: 2025/03/02
 % =============================================================
 
-\ProvidesPackage{style}[2025/03/02 Custom Style Package]
+\ProvidesPackage{style}[2025/04/21 Custom Style Package]
 
 \input{style_config}
-
-
 \usepackage{docstyles}   % Document settings (page geometry, headings, patching)
 \usepackage{tocstyles}   % TOC customizations
 \usepackage{codestyles}  % Code listings settings
 \usepackage{mathstyles}  % Math theorem/definition environments
 \usepackage{patchstyles} % Patching commands (loaded last to take precedence).
-\usepackage{datetime2}
+\usepackage{datetime2}   % For accessing current datetime
 
 \usepackage{enumitem}
 \setlist[enumerate]{%

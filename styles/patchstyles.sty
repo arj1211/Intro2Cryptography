@@ -1,29 +1,27 @@
-% patchstyles.sty: Patching Commands for Left Indentation
 % =============================================================
 % This package contains the patches that modify heading and environment
 % commands to set the left indentation based on heading level.
-%
-% Last updated: 2025/03/03
 % =============================================================
 
-\ProvidesPackage{patchstyles}[2025/03/03 Patching Customizations]
+\ProvidesPackage{patchstyles}[2025/04/21 Patching Customizations]
 
 \usepackage{etoolbox}
 \usepackage{xpatch}
-
-
 \makeatletter
 
 % Default indent level variable; 0 means no extra indent.
 \gdef\my@indentlevel{0}
+
 % Patch heading commands to set an internal indent level:
 \pretocmd{\chapter}{\gdef\my@indentlevel{1}}{}{}
 \pretocmd{\section}{\gdef\my@indentlevel{2}}{}{}
 \pretocmd{\subsection}{\gdef\my@indentlevel{3}}{}{}
+
 % After a heading finishes, set \leftskip to (indent level * base horizontal spacing).
 \apptocmd{\@afterheading}{%
   \setlength{\leftskip}{\dimexpr \my@indentlevel\headingHspace \relax}%
 }{}{}
+
 % Patch theorem environments so that their body follows the same left indentation.
 \apptocmd{\@begintheorem}{%
   \setlength{\leftskip}{\dimexpr \my@indentlevel\headingHspace \relax}%
@@ -37,6 +35,7 @@
   \ignorespaces
 }
 {}{}
+
 % Patch the end of the proof environment to reset leftskip.
 \xpatchcmd{\proof}
 {\endtrivlist}

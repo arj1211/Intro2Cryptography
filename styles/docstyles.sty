@@ -1,72 +1,68 @@
-% docstyles.sty: Document Styles
 % =============================================================
 % This package sets general document settings, including page geometry,
 % headings, line spacing, and patches to adjust left indentation after headings.
-%
-% Last updated: 2025/03/03
 % =============================================================
 
-\ProvidesPackage{docstyles}[2025/03/03 Document Style Customization]
+\ProvidesPackage{docstyles}[2025/04/21 Document Style Customization]
 
 % -----------------------------
 % PAGE GEOMETRY & FOOTER
 % -----------------------------
 \usepackage{geometry}
 \geometry{
-    a4paper,        % Use A4 paper size
-    left=1cm,       % Left margin: 1cm
-    top=1cm,        % Top margin: 1cm
-    right=1cm,      % Right margin: 1cm (adjust if margin notes needed)
-    bottom=1cm,     % Bottom margin: 1cm
-    includefoot     % Include footer in layout
+  a4paper,								  	        	% Use A4 paper size
+  left=1cm,							  		        	% Left margin: 1cm
+  top=1cm,							  		        	% Top margin: 1cm
+  right=1cm,									        	% Right margin: 1cm (adjust if margin notes needed)
+  bottom=1cm,									        	% Bottom margin: 1cm
+  includefoot									        	% Include footer in layout
 }
-\setlength{\footskip}{2em}  % Distance from bottom of text to footer
+\setlength{\footskip}{2em}		        	% Distance from bottom of text to footer
+\setlength{\parindent}{0pt}		        	% No paragraph indent
 
 % -----------------------------
 % HEADING & LINE SPACING
 % -----------------------------
-\usepackage{titlesec}   % For customizing headings
-\usepackage{setspace}   % For setting line spacing
-\onehalfspacing        % Overall line spacing: 1.5
+\usepackage{titlesec}					        	% For customizing headings
+\usepackage{setspace}					        	% For setting line spacing
+\onehalfspacing								        	% Overall line spacing: 1.5
 
 % -----------------------------
 % HEADING FORMATS
 % -----------------------------
-% The spacing variables \headingVspace and \headingHspace are assumed to be
+% The spacing variables \headingVspace
+% and \headingHspace are assumed to be
 % defined in macros.tex.
 %
 % --- Chapter Headings ---
 \titleformat{\chapter}
-  {\bfseries\LARGE}    % Bold, large font for chapter titles
-  {\thechapter}         % Chapter number label
-  {\headingVspace}      % Space between number and title text
-  {\LARGE}             % Formatting for title text
+{\bfseries\LARGE}							        	% Bold, large font for chapter titles
+{\thechapter}									        	% Chapter number label
+{\headingVspace}							        	% Space between number and title text
+{\LARGE}										            % Formatting for title text
 \titlespacing*{\chapter}
-  {0pt}                % Left margin for chapter heading
-  {\headingVspace}     % Space before chapter heading
-  {\headingVspace}     % Space after chapter heading
+{0pt}										                % Left margin for chapter heading
+{\headingVspace}							        	% Space before chapter heading
+{\headingVspace}							        	% Space after chapter heading
 
 % --- Section Headings ---
 \titleformat{\section}
-  {\normalfont\Large\bfseries} % Large, bold font for section titles
-  {\thesection}                % Section number label
-  {\headingVspace}             % Space between number and title
-  {}
+{\normalfont\Large\bfseries}	        	% Large, bold font for section titles
+{\thesection}									        	% Section number label
+{\headingVspace}							        	% Space between number and title
+{}
 \titlespacing*{\section}
-  {\headingHspace}             % Left margin for section heading
-  {\headingVspace}             % Space before section heading
-  {\headingVspace}             % Space after section heading
+{\headingHspace}							        	% Left margin for section heading
+{\headingVspace}							        	% Space before section heading
+{\headingVspace}							        	% Space after section heading
 
 % --- Subsection Headings ---
 \titleformat{\subsection}
-  {\normalfont\large\bfseries}  % Slightly smaller, bold font for subsection titles
-  {\thesubsection}             % Subsection number label
-  {\headingVspace}             % Space between number and title
-  {}
+{\normalfont\large\bfseries}	        	% Slightly smaller, bold font for subsection titles
+{\thesubsection}							        	% Subsection number label
+{\headingVspace}							        	% Space between number and title
+{}
 \titlespacing*{\subsection}
-  {\dimexpr 2\headingHspace\relax}  % Left margin for subsection (2x horizontal spacing)
-  {\headingVspace}             % Space before subsection heading
-  {\headingVspace}             % Space after subsection heading
-
-
-
+{\dimexpr 2\headingHspace\relax}        % Left margin for subsection (2x horizontal spacing)
+{\headingVspace}							        	% Space before subsection heading
+{\headingVspace}							        	% Space after subsection heading
