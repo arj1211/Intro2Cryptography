@@ -36,6 +36,63 @@
 \begin{definition}[Greatest Common Divisor]
   $\ifthen{d = \max \{\forall d : d \ \text{is a \textbf{common divisor} of} \ a,b \in \Z\} \\}{d \ \text{is the \textbf{greatest common divisor} of} \ a,b \in \Z, \text{denoted} \ d=gcd(a,b)}$
 \end{definition}
+\begin{definition}[Division with Remainder]
+  $\ifthen{a=bq+r, \ 0 \leq r < b, \ \forall a,b \in \Z^+ \\}{\text{$a$ divided by $b$ has \textbf{quotient} $q$ with \textbf{remainder} $r$}}$
+\end{definition}
+Lets say we want $gcd(a,b)$, first divide $a$ by $b$ $\Rightarrow$ $a=bq+r, \ 0 \leq r < b$ \\
+$\begin{aligned}
+    \ifthen{\exists d & : d|a \wedge d|b}{d|r}                                      \\
+                      & \ifthen{a=dx_1, \ b=dx_2}{dx_1=dx_2q+r}                     \\
+                      & \Rightarrow r = dx_1-dx_2q=d(x_1-x_2q), \  x_1,x_2,q \in \Z \\
+                      & \Rightarrow \ifthen{r=dx_3}{d|r} \qed
+  \end{aligned}$\\
+$\begin{aligned}
+    \ifthen{\exists e & : e|b \wedge e|r}{e|a}                                     \\
+                      & \ifthen{b=ex_1, \ r=ex_2}{\ifthen{a=ex_2q+ex_2}{e|a}} \qed
+  \end{aligned}$\\
+$\begin{aligned}
+     & (\ifthen{d|a \wedge d|b}{d|r}) \wedge (\ifthen{e|b \wedge e|r}{e|a})         \\
+     & \Rightarrow \text{all common divisors of $a,b$ are common divisors of $b,r$} \\
+     & \Rightarrow gcd(a,b) = gcd(b,r)
+  \end{aligned}$\\
+\\
+So with
+$$a=bq+r, \ 0 \leq r < b$$ \\
+repeating the step with $b,r$ \\
+$$b=rq^\prime+r^\prime, \ 0 \leq r^\prime < r$$ \\
+$\Rightarrow gcd(b,r) = gcd(r, r^\prime)$ \\
+\\
+With each iteration, the \underline{remainder term decreases} till it hits zero \\
+then\\
+\begin{align*}
+  gcd(s,0) & = s        \\
+           & = gcd(a,b)
+\end{align*}\\
+\begin{example}
+  Find $gcd(2024,748)$
+  \begin{align*}
+    2024         & = \mathbf{748} \cdot 2 + 528 \\
+    \mathbf{748} & = 528 \cdot 1 + \mathbf{220} \\
+    528          & = \mathbf{220} \cdot 2 + 88  \\
+    220          & = 88 \cdot 2 + 44            \\
+    88           & = 44 \cdot 2 + 0             \\
+                 & \Rightarrow gcd(2024,748)=44
+  \end{align*}
+\end{example}
+\subsection{Euclidean Algorithm}
+\begin{definition}[Euclidean Algorithm]
+  The \textbf{Euclidean Algorithm} is as follows
+  \begin{algorithmic}
+    \State $r_0 \gets a, r_1 \gets b$
+    \State $i \gets 1$
+    \While {$r_{i+1} \neq 0$}
+    \State $r_{i-1} \gets r_i \cdot q_i + r_{i+1}, \ 0 \leq r_{i+1} < r_i$
+    \State $i \gets i + 1$
+    \EndWhile \\
+    Now $\ifthen{r_{i+1}=0}{r_i=gcd(a,b)}$ \\
+    \Return $r_i$
+  \end{algorithmic}
+\end{definition}
 \section{Modular Arithmetic}
 \section{Primes, Factorizations, Primitive Roots}
 \section{Symmetric, Asymmetric Ciphers}
